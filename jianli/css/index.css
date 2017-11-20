@@ -1,0 +1,79 @@
+/* 头部开始 */
+
+header {
+    height: 60px;
+    background-color: #000;
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0.7;
+}
+
+.top {
+    margin: 0 auto;
+    line-height: 60px;
+    background-color: purple;
+    width: 1000px;
+    
+}
+
+.top>ul {
+    margin: 0 auto;
+    background-color: orangered;
+    width: 800px;
+}
+.top>ul>:nth-child(3){
+    margin-left: 300px;
+}
+.top li {
+    float: left;
+    margin-left: 80px;
+}
+
+.top li a {
+    color: #cbcbcb;
+    text-decoration-line: none;
+    display: inline-block;
+}
+header span{
+    float: right;
+    line-height: 60px;
+}
+header span a {
+    text-decoration-line: none;
+    color: #cbcbcb;
+    margin-right: 70px;
+}
+
+
+/* 身体开始 */
+
+.main {
+    height: 1980px;
+    /* background-color: skyblue; */
+    background-image: url("../images/bg1.jpg");
+    padding-top: 60px;
+}
+
+.about_me{
+    width: 960px;
+    background-color: red;
+    margin: 0 auto;
+    height: 960px;
+    padding-top: 60px;
+}
+.about_me span{
+    font-size: 4em;
+    text-align: left;
+}
+
+
+/* 底部开始 */
+
+footer {
+    height: 60px;
+    background-color: black;
+    background-size: cover;
+}
