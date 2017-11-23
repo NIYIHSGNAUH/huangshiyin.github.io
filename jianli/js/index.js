@@ -1,24 +1,6 @@
-//使用jQuery实现
-$(document).ready(function () {
-    var lazyLoading = function () {
-        var scrollTop = $(window).height();
-        var viewportSize = $(window).scrollTop();
-
-        $('img').each(function () {
-            var x = scrollTop + viewportSize - $(this).position().top;
-            if (x > 0){
-                $(this).attr('src', $(this).attr('data-scr'));
-            }
-        });
-    }
-    window.addEventListener('scroll', lazyLoading, false);
-});
-
-
 //圆形滑块
 $(document).ready(function(){
-    
-        // helpful variables
+        // 变量的设置
         var slider = $('.slider');
         var sliderInner = slider.find('.slider-inner');
         var sliderOrigin = slider.find('.slider-origin');
@@ -32,11 +14,11 @@ $(document).ready(function(){
         var extraDeg = 0;
         var currentItem = sliderItems.eq(0);
     
-        // slider origin width & height = half of item height
+        // 滑块的其实宽度、高度
         sliderOrigin.width(sliderItems.outerHeight() / 2);
         sliderOrigin.height(sliderItems.outerHeight() / 2);
         
-        // slider inner width & height = item height * 3.5
+        // 滑块里面的宽度
         sliderInner.width(sliderItems.outerHeight()*3.5);
         sliderInner.height(sliderItems.outerHeight()*3.5);
     
@@ -45,7 +27,7 @@ $(document).ready(function(){
     
         sliderOrigin.css('margin-top',(sliderInner.height() / 2) - (sliderOrigin.height() / 2));
         
-        // calc rotation positioning
+        // 计算旋转位置
         function rotationPosition(exceptIndex){
             exceptIndex = exceptIndex | 0;
             var i = 1;
@@ -62,7 +44,7 @@ $(document).ready(function(){
         }rotationPosition();
     
     
-        // click event on item
+        // 点击
         var clickedItemIndex = null;
         function sliderItemsClickEvent(){
     
@@ -80,20 +62,20 @@ $(document).ready(function(){
             });
         }sliderItemsClickEvent();
     
-        // push index of the activated item
+        // 为active加index
         function pushIndex(index){
             sliderItems.removeClass('active');
             rotationPosition(index);
         }
     
-        // clickDown = true if mousedown on slider
+        // 如果鼠标点击
         sliderInner.mousedown(function(e){
             clickDown = true;
             moveFrom = e.pageX;
         });
     
     
-        // clickDown = false if mouseup on any place in the page
+        //鼠标抬起执行  clickDown=false
         $(document).mouseup(function(e){
             clickDown = false;
             setTimeout(function(){ clickedItemIndex = null; }, 505);
@@ -106,7 +88,7 @@ $(document).ready(function(){
         });
     
     
-        // calc mouse move on sliderInner div
+        //鼠标移动到滑块里面的div
         sliderInner.mousemove(function(e){
             if(clickDown){
                 if(!mouseMove){mouseMove = true;}
@@ -119,7 +101,7 @@ $(document).ready(function(){
         });
     
         function swipe(from, to){
-            var distance = Math.abs(from - to); // mouse move distance
+            var distance = Math.abs(from - to); // 鼠标移动距离
             var rightDir = from < to;
             if(distance > sliderInnerWidth/4){
                 navigate();
@@ -143,7 +125,6 @@ $(document).ready(function(){
 
 
     //锚点切换动画
-    
     $(function(){
         $("#to_demo").click(function(){
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {

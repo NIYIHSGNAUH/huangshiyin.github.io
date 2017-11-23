@@ -30,10 +30,17 @@ header {
 .top>ul {
     margin: 0 auto;
     background-color: orangered;
-    width: 800px;
+    width: 1000px;
 }
 .top>ul>:nth-child(3){
-    margin-left: 300px;
+    margin-left: 200px;
+}
+.top>ul>:nth-child(3) span{
+    color: #fff;
+    font-size: 2em;
+}
+.top>ul>:nth-child(4){
+    margin-left: 200px;
 }
 .top li {
     float: left;
@@ -65,14 +72,12 @@ header span a {
 
 .main {
     height: 800px;
-    /* background-color: skyblue; */
     background-image: url("../images/bg1.jpg");
     padding-top: 60px;
 }
 
 .about_me{
     width: 960px;
-    /* background-color: red; */
     margin: 0 auto;
     height: 700px;
     padding-top: 60px;
@@ -85,10 +90,7 @@ header span a {
     color: black;
 }
 .ab_right{
-    /* background-color: orangered; */
     position: absolute;
-    /* top: 50px; */
-    /* left: 50px; */
     margin-left: 570px;
     margin-top: -400px;
     width: 400px;
@@ -96,6 +98,17 @@ header span a {
 }
 .ab_right h2{
     font-size: 40px;
+    color: black;
+}
+.ab_right P{
+    padding-left: 10px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 10px;
+    background-color: #222;
+    font-size: 1.5em;
+    color: #eee;
+    margin-top: 20px;
 }
 
 .slider{
@@ -104,9 +117,7 @@ header span a {
     
 }
 .slider-origin{
-    /* background-color: #bd2cbd; */
     border-radius: 50%;
-    /*margin-top: 20%;*/
     display: inline-block;
     position: relative;
     
@@ -119,13 +130,9 @@ header span a {
     
     width: 100px;
     height: 100px;
-    /* background-color: rgba(128,0,128,0.4); */
-    /* box-shadow: 0 0 3px 1px rgba(0,0,0,0.1); */
     border-radius: 3px;
     position: absolute;
     bottom: 200%;
-    /* left: 50%; */
-    /* margin-left: -37px; */
 		cursor: pointer;
     
     transform-origin: center 250%;
@@ -168,18 +175,15 @@ header span a {
 
 .demo{
     width: 100%;
-    margin: 0 auto;
-    /* background-image: url("../images/bg2.jpg"); */
-    /* background-repeat:  repeat; */
     background-color: rgba(33, 33 , 33, 0.8);
     height: 900px;
-    z-index: 300;
     box-shadow: inset 0 0 15px #000;
     border-top: 2px solid #333;
-    border-bottom: 2px solid #000;
+    border: 2px solid #000;
     color: whitesmoke;
     padding-top: 60px;
     box-sizing: border-box;
+    overflow: hidden
 }
 .demo_title{
     width: 960px;
@@ -212,6 +216,11 @@ header span a {
     
     
 }
+.cocos img{
+    width: 480px;
+    display: inline-block;
+    
+}
 
 .lianxi{
     width: 100%;
@@ -220,23 +229,18 @@ header span a {
 }
 .lianxi .war{
     width: 1000px;
-    /* background-color: orange; */
     margin: 0 auto;
     height: 600px;
     
 }
 .lianxi .zhaohu{
     width: 100%;
-    /* background-color: skyblue; */
     height: 400px;
-    /* float: left; */
-    /* flex-wrap: wrap; */
     display: inline-flex;
     flex-direction: row;
 }
 .lianxi .zhaohu .slj{
     height: 380px;
-    /* background-color: orangered; */
     width: 480px;
     padding-top: 50px;
     margin-left: 20px;
@@ -253,7 +257,6 @@ header span a {
     color: #d87c2a;
 }
 .linktome{
-    /* background-color: peru; */
     width: 480px;
     height: 380px;
     display: inline-block;
@@ -305,7 +308,6 @@ header span a {
 
 
 .lianxi .h{
-    /* background-color: rebeccapurple; */
     color: black;
     font-size: 5em;
     padding-top: 50px;
@@ -443,9 +445,20 @@ header span a {
 }
 
 /* 底部开始 */
-/* 
-footer {
-    height: 60px;
-    background-color: black;
-    background-size: cover;
-} */
+
+.footer {
+    height: 45px;
+    width: 1000px;
+    background-color: #222;
+    margin: 30px auto 0px;  
+    line-height: 45px;
+    text-align: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+.footer span{
+    color: #ddd;
+    font-size: 1.2em;
+    width: 1000px;
+    margin: 0 auto;    
+}
