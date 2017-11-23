@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +9,256 @@
     <!-- ---
     layout: false
     --- -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/basic.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <header>
         <div class="top">
             <ul>
-                <li><a href="#">关于我</a></li>
-                <li><a href="#">作品</a></li>
-                <li><a href="#">联系</a></li>
-                <li><a href="#">xxx</a></li>
+                <li>
+                    <a href="#about_me" id="to_aboutme">关于我</a>
+                </li>
+                <li>
+                    <a href="#demo" id="to_demo">作品</a>
+                </li>
+                <li>
+                    <a href="#lianxi" id="to_lianxi">联系</a>
+                </li>
             </ul>
         </div>
-        <span><a href="http://huangshiyin.github.io">返回</a></span>        
+        <span>
+            <a href="http://huangshiyin.github.io">返回</a>
+        </span>
     </header>
     <div class="main">
-        <div class="about_me">
+        <div class="about_me" id="about_me">
             <span>关于我</span>
+
+            <div class="slider">
+                <div class="slider-inner">
+                    <div class="slider-origin">
+                        <div class="slider-item">
+                            <img src="images/html5.png" alt="" width="100px" height="100px">HTML5</div>
+                        <div class="slider-item">
+                            <img src="images/Css3.png" alt="" width="100px" height="100px">CSS3</div>
+                        <div class="slider-item">
+                            <img src="images/javascript.png" alt="" width="100px" height="100px">javescript</div>
+                        <div class="slider-item">
+                            <img src="images/jquery.png" alt="" width="100px">jquery</div>
+                        <div class="slider-item">
+                            <img src="images/bootstrap.png" alt="" width="100px" height="100px">bootstrap</div>
+                        <div class="slider-item">
+                            <img src="images/Cocos2d-html5.png" alt="" width="100px" height="100px">coco2d-js</div>
+                        <div class="slider-item">
+                            <img src="images/vue.png" alt="" width="100px" height="100px">vue.js</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab_right">
+                <h2>简介</h2>
+            </div>
+        </div>
+
+    </div>
+    <div class="demo" id="demo">
+        <div class="demo_title">
+            <span>Demo</span>
+        </div>
+        <div id="app">
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-2">
+                    <div class="list-group">
+                        <router-link class="list-group-item" :to="{name:'h5'}">Web</router-link>
+                        <router-link class="list-group-item" :to="{name:'web'}">Cocos2d-js</router-link>
+                        <router-link class="list-group-item" :to="{name:'js'}">JS</router-link>
+                    </div>
+                </div>
+                <div class="col-xs-7">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <!-- 路由出口 -->
+                            <!-- 路由匹配到的组件将渲染在这里 -->
+                            <router-view></router-view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template id="html5">
+            <div>
+                <ul id="tabs">
+                    <li>
+                        <router-link :to="{name:'tab1'}">one</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{name:'tab2'}">two</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{name:'tab3'}">three</router-link>
+                    </li>
+                </ul>
+                <div id="content">
+                    <router-view></router-view>
+                    <div class="content">
+                        <img src="images/demo/demo11.png" alt="" height="500px">
+                        <img src="images/demo/demo1.png" alt="" height="500px">
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="tab1">
+            <div class="content">
+                <img src="images/demo/demo11.png" alt="" height="500px">
+                <img src="images/demo/demo1.png" alt="" height="500px">
+            </div>
+        </template>
+        <template id="tab2">
+            <div class="content">
+                <img src="images/demo/nubia.png" alt="" height="500px" width="650px">
+                <img src="images/demo/ntbia2.png" alt="" height="500px" width="250px">
+            </div>
+
+        </template>
+        <template id="tab3">
+            <div class="content">
+                <img src="images/demo/demo2.png" alt="" height="550" width="700px">
+                <img src="images/demo/sjweb.png" alt="" height="550">
+            </div>
+
+        </template>
+
+        <template id="web">
+            <div></div>
+        </template>
+        <template id="js">
+            <div>
+
+            </div>
+        </template>
+
+        <script src="js/vue.js"></script>
+        <script src="js/vue-router.js"></script>
+        <script>
+            // 1.创建组件
+            const Html5 = Vue.extend({
+                template: '#html5'
+            });
+            const Tab1 = Vue.extend({
+                template: '#tab1'
+            });
+            const Tab2 = Vue.extend({
+                template: '#tab2'
+            });
+            const Tab3 = Vue.extend({
+                template: '#tab3'
+            });
+
+            const Web = Vue.extend({
+                template: '#web'
+            });
+            const Js = Vue.extend({
+                template: '#js'
+            });
+
+            // 2.定义路由
+            const routes = [{
+                    path: '/h5',
+                    name: 'h5',
+                    component: Html5,
+                    children: [{
+                            path: 'tab1',
+                            component: Tab1,
+                            name: 'tab1'
+                        },
+                        {
+                            path: 'tab2',
+                            component: Tab2,
+                            name: 'tab2'
+                        },
+                        {
+                            path: 'tab3',
+                            component: Tab3,
+                            name: 'tab3'
+                        },
+
+                    ],
+                },
+                {
+                    path: '/web',
+                    component: Web,
+                    name: 'web',
+                },
+                {
+                    path: '/js',
+                    component: Js,
+                    name: 'js',
+                },
+                {
+                    path: '/',
+                    redirect: '/h5' //配置根路由
+                },
+                {
+                    path: '/',
+                    redirect: 'tab1' //配置根路由
+                }
+            ];
+
+            // 3.创建路由实例
+
+            const router = new VueRouter({
+                routes
+            });
+
+            // 4.创建Vue的实例，并挂载
+            new Vue({
+                router,
+            }).$mount('#app')
+        </script>
+    </div>
+
+    <div class="lianxi" id="lianxi">
+        <div class="war">
+            <div class="h">
+                <h2>打个招呼</h2>
+            </div>
+            <div class="zhaohu">
+                <!-- <div> -->
+                    <div class="slj">
+                        <p>一个
+                            <span>即将毕业</span>的学生</p>
+                        <p>现居珠海</p>
+                        <p>寻找
+                            <span>实习的机会</span>
+                        </p>
+                        <p>想学习更多
+                            <span>新知识</span>
+                        </p>
+                        <p>想结交
+                            <span>新朋友</span>
+                        </p>
+                    </div>
+                    <div class="linktome">
+                        <h3>联系我吧</h3>
+                        <ul>
+                            <li id="link_tel"><a href="tel:13421299192">134 2129 9192</a></li>
+                            <li id="link_email"><a href="mailto:30214908@qq.com">30214908@qq.com</a></li>
+                            <li id="link_blog"><a href="https://huangshiyin.github.com">huangshiyin.github.com</a></li>
+                        </ul>
+                    </div>
+                <!-- </div> -->
+
+            </div>
         </div>
     </div>
-    <footer>
-        这是底部
-    </footer>
+    <!-- <footer>
+            <p>5456415</p>
+    </footer> -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
+
 </html>
